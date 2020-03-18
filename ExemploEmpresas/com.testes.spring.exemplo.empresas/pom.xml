@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.testes.spring.exemplo</groupId>
+	<artifactId>empresas</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+		<spring.version>5.2.4.RELEASE</spring.version>
+		<jackson.databind.version>2.10.3</jackson.databind.version>
+		<javax.servletapi.version>3.1.0</javax.servletapi.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- ************************* Dependências do Mongo ************************* -->
+		<!-- Spring Data Mongo: tem classes e interfaces que nos permite conectar 
+			ao MongoDB -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>2.2.4.RELEASE</version>
+		</dependency>
+
+		<!-- ************************* Dependências Utils ************************* -->
+		<!-- Commons Text: Tem métodos que nos facilitam trabalhar com String, 
+			como o "capitalizeFully" -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+
+
+		<!-- ************************* Dependências do Spring ************************* -->
+		<!-- Spring Core: Contém as estruturas fundamentais do Spring. As outras 
+			bibliotecas do spring utilizam estruturas que estão nessa -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<!-- Spring Context: Tem o container de injeção de depencia do Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring AOP: Habilita opções relacionadas à arquitetura dos projetos. 
+			Saiba mais: https://www.baeldung.com/spring-aop -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring WebMVC: Suporte Model-View-Controller e ao Rest Web Services -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring Web: Integração com o Http -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- ************************* Dependências do Jackson ************************* -->
+		<!-- Jackson Databind: Faz conversão de Json para Objeto e vice-versa. 
+			É necessário importar essa lib, pois o Spring a utiliza para fazer as conversões. -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.databind.version}</version>
+		</dependency>
+
+
+		<!-- ************************* Dependências do Javax Servelet API ************************* -->
+		<!-- Javax Servelet API: Define classes e interfaces relacionadas ao Servelets. 
+			A utilizamos, por exemplo, para fazer filtros -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servletapi.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
